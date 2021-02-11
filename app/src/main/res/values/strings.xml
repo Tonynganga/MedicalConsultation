@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">MedicalConsultation</string>
     <string name="button">Button</string>
-    <string name="button">Button</string>
-    <string name="button">Button</string>
+    <string name="button1">Button</string>
+   
+    <string name="textview">TextView</string>
 </resources>
