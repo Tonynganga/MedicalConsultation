@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">MedicalConsultation</string>
-    <string name="hey_there">Hey There</string>
-    <string name="greetings">Greetings</string>
+    <string name="heading">MEDICAL CONSULTATION APP</string>
+    <string name="btnpatient">PATIENT</string>
+    <string name="btndoctor">DOCTOR</string>
+
 
 </resources>
