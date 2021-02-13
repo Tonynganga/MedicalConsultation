@@ -9,6 +9,10 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     private Button btnpatient, btndoctor;
+    public static final String APP_USER="state user";
+    public static final String USER_PATIENT="patient";
+    public static final String USER_DOCTOR="doctor";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,11 +24,13 @@ public class MainActivity extends AppCompatActivity {
 
         btnpatient.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), LogInPage.class);
+            intent.putExtra(APP_USER,USER_PATIENT);
             startActivity(intent);
         });
 
         btndoctor.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), LogInPage.class);
+            intent.putExtra(APP_USER,USER_DOCTOR);
             startActivity(intent);
         });
     }
