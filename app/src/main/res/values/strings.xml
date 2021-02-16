@@ -9,6 +9,8 @@
     <string name="login_button">LOGIN</string>
     <string name="no_account_textview">NO ACCOUNT</string>
     <string name="register_btn">REGISTER</string>
+    <string name="register_patient_title">Register Patient</string>
+    <string name="register_doctor_title">Register Doctor</string>
 
 
 </resources>
