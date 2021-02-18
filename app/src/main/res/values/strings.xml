@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">MedicalConsultation</string>
+
+    <string name="button">Button7</string>
+    <string name="name">Name</string>
     <string name="heading">MEDICAL CONSULTATION APP</string>
     <string name="btnpatient">PATIENT</string>
     <string name="btndoctor">DOCTOR</string>
@@ -11,6 +14,7 @@
     <string name="register_btn">REGISTER</string>
     <string name="register_patient_title">Register Patient</string>
     <string name="register_doctor_title">Register Doctor</string>
+
 
 
 </resources>
