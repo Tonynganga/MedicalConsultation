@@ -19,9 +19,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnpatient = (Button)findViewById(R.id.buttonpatient);
-        btndoctor = (Button)findViewById(R.id.buttondoctor);
-
+        btnpatient = findViewById(R.id.buttonpatient);
+        btndoctor = findViewById(R.id.buttondoctor);
         btnpatient.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), LogInPage.class);
             intent.putExtra(APP_USER,USER_PATIENT);
