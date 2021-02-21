@@ -10,8 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MedicalConsultation">
-        <activity android:name=".DoctorRegister">
-        </activity>
+        <activity android:name=".PatientHomePage"></activity>
+        <activity android:name=".DoctorHomePage" />
+        <activity android:name=".DoctorRegister" />
         <activity android:name=".PatientRegister" />
         <activity android:name=".LogInPage" />
         <activity android:name=".MainActivity">
