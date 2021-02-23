@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,7 +23,7 @@ import static com.example.medicalconsultation.MainActivity.USER_PATIENT;
 public class LogInPage extends AppCompatActivity {
 
     FirebaseAuth fAuth;
-
+    ProgressBar progressBar;
     private Button mButtonRegister,mButtonLogin;
     private EditText mEtPassword,mEtUsername;
 
@@ -39,6 +40,7 @@ public class LogInPage extends AppCompatActivity {
 
         mButtonRegister = (Button)findViewById(R.id.button_register);
         mButtonLogin = (Button)findViewById(R.id.buttonlogin);
+        progressBar = findViewById(R.id.progressBar);
 
         mEtUsername = findViewById(R.id.etUserName);
         mEtPassword = findViewById(R.id.etPassword);
@@ -57,12 +59,26 @@ public class LogInPage extends AppCompatActivity {
                 return;
             }
 
+            progressBar.setVisibility(View.VISIBLE);
+
             fAuth.signInWithEmailAndPassword(username,password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
+                            progressBar.setVisibility(View.GONE);
                             if(task.isSuccessful()){
-                                FirebaseUser user = fAuth.getCurrentUser();
+                                if(user=="patient"){
+                                    Intent i = new Intent(getApplicationContext(), PatientHomePage.class);
+                                    startActivity(i);
+                                    finish();
+                                }else if(user=="doctor"){
+                                    Intent i = new Intent(getApplicationContext(), DoctorHomePage.class);
+                                    startActivity(i);
+                                    finish();
+                                }
+                                else{
+                                    Toast.makeText(getApplicationContext(), "Unknown. please try again",Toast.LENGTH_SHORT).show();
+                                }
                             }else{
                                 Toast.makeText(getApplicationContext(), "Invalid email or Password",Toast.LENGTH_SHORT).show();
                             }
