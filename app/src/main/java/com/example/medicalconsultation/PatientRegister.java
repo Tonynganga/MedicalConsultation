@@ -93,39 +93,25 @@ public class PatientRegister extends AppCompatActivity {
                     return;
                 }
 
-                UserDetails user = new UserDetails(patientage,patientemail, patientname, patientgender, patientlocation);
-
-                FirebaseUtils.registerUser(user);
 
 
 
-//                mAuth.createUserWithEmailAndPassword(patientemail, patientpassword)
-//                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-//                            @Override
-//                            public void onComplete(@NonNull Task<AuthResult> task) {
-//                                if (task.isSuccessful()) {
-//                                    UserDetails user = new UserDetails(patientage,patientemail, patientname, patientgender, patientlocation);
-//                                    FirebaseDatabase.getInstance().getReference("Users")
-//                                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-//                                            .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-//                                        @Override
-//                                        public void onComplete(@NonNull Task<Void> task) {
-//                                            if (task.isSuccessful()) {
-//                                                Toast.makeText(PatientRegister.this, "User has been registered successfully", Toast.LENGTH_LONG).show();
-//
-//                                            } else {
-//                                                Toast.makeText(PatientRegister.this, "User has not registered successfully. Try again!", Toast.LENGTH_LONG).show();
-//                                            }
-//                                        }
-//
-//                                    });
-//                                } else {
-//                                    Toast.makeText(PatientRegister.this, "Failed to register the user", Toast.LENGTH_LONG).show();
-//
-//                                }
-//                        }
-//                });
-//
+                mAuth.createUserWithEmailAndPassword(patientemail, patientpassword)
+                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    UserDetails user = new UserDetails(patientage,patientemail, patientname, patientgender, patientlocation);
+
+                                    FirebaseUtils.registerUser(user,PatientRegister.this);
+
+                                } else {
+                                    Toast.makeText(PatientRegister.this, "Failed to register the user", Toast.LENGTH_LONG).show();
+
+                                }
+                        }
+                });
+
             }
         });
 

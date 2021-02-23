@@ -27,13 +27,14 @@ public class FirebaseUtils {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
                         Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-                        Toast toast = Toast.makeText(callactivity.getApplicationContext(), "User Registered Successful", Toast.LENGTH_LONG);
+                        Toast.makeText(callactivity.getApplicationContext(), "User Registered Successful", Toast.LENGTH_LONG).show();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Log.w(TAG, "Error adding document", e);
+                        Toast.makeText(callactivity.getApplicationContext(), "Failed to register the user", Toast.LENGTH_LONG).show();
                     }
                 });
 
