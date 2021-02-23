@@ -6,20 +6,29 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
+
 import android.util.Patterns;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
+
+import com.example.medicalconsultation.HelperClasses.Patient;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.auth.User;
+
 
 public class PatientRegister extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -28,10 +37,20 @@ public class PatientRegister extends AppCompatActivity {
     private RadioButton selectedRadioButton;
     private Button edtRegister;
 
+    //variables
+    EditText mEtName, mEtAge, mEtLocation, mEtEmail, mEtPassword;
+    RadioGroup radioGroup;
+    RadioButton genderRadioButton;
+    Button mBtnRegister;
+    ProgressBar progressBar;
+
+    FirebaseAuth fAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_register);
+
         edtname = findViewById(R.id.etPatientName);
         edtemail = findViewById(R.id.etPatientEmail);
         edtpassword = findViewById(R.id.etPatientPassword);
@@ -128,6 +147,7 @@ public class PatientRegister extends AppCompatActivity {
 //
             }
         });
+
 
 
 
