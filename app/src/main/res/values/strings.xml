@@ -14,6 +14,14 @@
     <string name="register_btn">REGISTER</string>
     <string name="register_patient_title">Register Patient</string>
     <string name="register_doctor_title">Register Doctor</string>
+    <string name="patientname">Enter Name</string>
+    <string name="patientemail">Enter Email</string>
+    <string name="patientpassword">Enter Password</string>
+    <string name="patientage">Enter Age</string>
+    <string name="patientlocation">Enter Location</string>
+    <string name="select_gender">Select Gender</string>
+    <string name="gender_male">male</string>
+    <string name="gender_female">Female</string>
 
 
 </resources>

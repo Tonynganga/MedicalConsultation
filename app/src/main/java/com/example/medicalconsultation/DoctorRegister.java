@@ -10,12 +10,12 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 public class DoctorRegister extends AppCompatActivity implements  AdapterView.OnItemSelectedListener {
-    private String[] mDoctorCategory={"Dentist","Optician","Dermatologist","Pediatrician","Gynaecologist","Gastrologist"};
+    private final String[] mDoctorCategory={"Dentist","Optician","Dermatologist","Pediatrician","Gynaecologist","Gastrologist"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_register);
-        Spinner spin = (Spinner) findViewById(R.id.categorySpinner);
+        Spinner spin = findViewById(R.id.categorySpinner);
         spin.setOnItemSelectedListener(this);
 
         //Creating the ArrayAdapter instance having the country list
@@ -35,4 +35,6 @@ public class DoctorRegister extends AppCompatActivity implements  AdapterView.On
     public void onNothingSelected(AdapterView<?> adapterView) {
 
     }
+
+
 }
