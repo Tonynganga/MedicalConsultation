@@ -61,7 +61,7 @@
             android:ems="10"
             android:hint="Enter Password"
             android:importantForAutofill="no"
-            android:inputType="textEmailAddress"
+            android:inputType="textPassword"
             android:padding="15dp"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
@@ -81,7 +81,7 @@
             android:ems="10"
             android:hint="Enter Age"
             android:importantForAutofill="no"
-            android:inputType="textEmailAddress"
+            android:inputType="number"
             android:padding="15dp"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
@@ -101,7 +101,7 @@
             android:ems="10"
             android:hint="Enter Location"
             android:importantForAutofill="no"
-            android:inputType="textEmailAddress"
+            android:inputType="text"
             android:padding="15dp"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
@@ -167,7 +167,7 @@
         </RadioGroup>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/buttonRegister"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
