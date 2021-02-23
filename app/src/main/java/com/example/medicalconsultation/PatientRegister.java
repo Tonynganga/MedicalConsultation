@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -95,6 +96,7 @@ public class PatientRegister extends AppCompatActivity {
                 UserDetails user = new UserDetails(patientage,patientemail, patientname, patientgender, patientlocation);
 
                 FirebaseUtils.registerUser(user);
+
 
 
 //                mAuth.createUserWithEmailAndPassword(patientemail, patientpassword)

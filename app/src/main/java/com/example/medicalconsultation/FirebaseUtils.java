@@ -1,6 +1,8 @@
 package com.example.medicalconsultation;
 
+import android.app.Activity;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -18,13 +20,14 @@ public class FirebaseUtils {
     private static final FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     // Create a new user with a first and last name
-    public static void registerUser(UserDetails user){
+    public static void registerUser(UserDetails user, Activity callactivity){
         db.collection("patientUsers")
                 .add(user)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
                         Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+                        Toast toast = Toast.makeText(callactivity.getApplicationContext(), "User Registered Successful", Toast.LENGTH_LONG);
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
