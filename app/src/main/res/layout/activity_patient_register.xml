@@ -19,7 +19,7 @@
         android:background="@drawable/input_outline"
         android:ems="10"
         android:gravity="center_horizontal"
-        android:hint="Enter Name"
+        android:hint="@string/patientname"
         android:importantForAutofill="no"
         android:inputType="text"
         android:padding="15dp"
@@ -41,7 +41,7 @@
         android:background="@drawable/input_outline"
         android:ems="10"
         android:gravity="center_horizontal"
-        android:hint="Enter Email"
+        android:hint="@string/patientemail"
         android:importantForAutofill="no"
         android:inputType="textEmailAddress"
         android:padding="15dp"
@@ -63,9 +63,9 @@
         android:background="@drawable/input_outline"
         android:ems="10"
         android:gravity="center_horizontal"
-        android:hint="Enter Password"
+        android:hint="@string/patientpassword"
         android:importantForAutofill="no"
-        android:inputType="textEmailAddress"
+        android:inputType="textPassword"
         android:padding="15dp"
         android:textAlignment="center"
         android:textColor="@color/white"
@@ -85,7 +85,7 @@
         android:background="@drawable/input_outline"
         android:ems="10"
         android:gravity="center_horizontal"
-        android:hint="Enter Age"
+        android:hint="@string/patientage"
         android:importantForAutofill="no"
         android:inputType="textEmailAddress"
         android:padding="15dp"
@@ -107,9 +107,9 @@
         android:background="@drawable/input_outline"
         android:ems="10"
         android:gravity="center_horizontal"
-        android:hint="Enter Location"
+        android:hint="@string/patientlocation"
         android:importantForAutofill="no"
-        android:inputType="textEmailAddress"
+        android:inputType="textPassword"
         android:padding="15dp"
         android:textAlignment="center"
         android:textColor="@color/white"
@@ -135,7 +135,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <RadioGroup
-        android:id="@+id/radioGroup"
+        android:id="@+id/radioGroupgender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/space_btw_textV"
@@ -148,33 +148,33 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/radio_margin"
-            android:text="Select Gender"
+            android:text="@string/select_gender"
             android:textColor="@color/white"
             android:textSize="25sp"
             android:textStyle="bold|italic" />
 
         <RadioButton
-            android:id="@+id/rgBreastMilkBottleFeeding"
+            android:id="@+id/rbMale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/radio_margin"
             android:checked="true"
-            android:text="male"
+            android:text="@string/gender_male"
             android:textSize="@dimen/radio_text" />
 
         <RadioButton
-            android:id="@+id/rgOtherBottleFeeding"
+            android:id="@+id/rbfemale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/radio_margin"
             android:layout_marginTop="@dimen/space_btw_textV"
-            android:text="Female"
+            android:text="@string/gender_female"
             android:textSize="@dimen/radio_text" />
 
     </RadioGroup>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonpatientregister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -183,7 +183,7 @@
         app:backgroundTint="@color/button_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupgender" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
