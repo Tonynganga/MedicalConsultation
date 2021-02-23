@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="space_btw_textV">20dp</dimen>
+    <dimen name="radio_margin">10dp</dimen>
+    <dimen name="title_space_from_top">16dp</dimen>
+    <dimen name="space_from_title">50dp</dimen>
+    <dimen name="radio_text">16sp</dimen>
+</resources>
