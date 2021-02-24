@@ -3,8 +3,6 @@ package com.example.medicalconsultation;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.os.Bundle;
 
 import android.util.Patterns;
@@ -25,9 +23,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.FirebaseDatabase;
 
 
 public class PatientRegister extends AppCompatActivity {
@@ -57,8 +52,8 @@ public class PatientRegister extends AppCompatActivity {
         edtage = findViewById(R.id.etPatientAge);
         edtlocation = findViewById(R.id.etPatientLocation);
 
-        gender = findViewById(R.id.radioGroupgender);
-        edtRegister = findViewById(R.id.buttonpatientregister);
+        gender = findViewById(R.id.radioGroup);
+        edtRegister = findViewById(R.id.buttonRegister);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -113,16 +108,16 @@ public class PatientRegister extends AppCompatActivity {
                 }
 
 
+                Patient patientUser = new Patient(patientname,patientemail,patientlocation,patientgender,Integer.parseInt(patientage));
 
-
-                mAuth.createUserWithEmailAndPassword(patientemail, patientpassword)
+                mAuth.createUserWithEmailAndPassword(patientemail,patientpassword)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    UserDetails user = new UserDetails(patientage,patientemail, patientname, patientgender, patientlocation);
-
-                                    FirebaseUtils.registerUser(user,PatientRegister.this);
+                                if(task.isSuccessful()){
+                                    Toast.makeText(PatientRegister.this, "Register Successfull", Toast.LENGTH_LONG).show();
+//
+                                    FirebaseUtils.registerPatientUser(patientUser);
 
                                 } else {
                                     Toast.makeText(PatientRegister.this, "Failed to register the user", Toast.LENGTH_LONG).show();
