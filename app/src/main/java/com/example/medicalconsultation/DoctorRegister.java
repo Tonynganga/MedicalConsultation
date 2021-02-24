@@ -1,38 +1,129 @@
 package com.example.medicalconsultation;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class DoctorRegister extends AppCompatActivity implements  AdapterView.OnItemSelectedListener {
+import com.example.medicalconsultation.HelperClasses.Doctor;
+import com.example.medicalconsultation.HelperClasses.Patient;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
+
+public class DoctorRegister extends AppCompatActivity  {
+    private EditText edtdname, edtdemail, edtdpassword, edtdphone, edtdlocation, edtddesc;
+    private Button docregister;
+    private FirebaseAuth mAuth;
+
+    FirebaseAuth fAuth;
     private final String[] mDoctorCategory={"Dentist","Optician","Dermatologist","Pediatrician","Gynaecologist","Gastrologist"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_register);
-        Spinner spin = findViewById(R.id.categorySpinner);
-        spin.setOnItemSelectedListener(this);
 
-        //Creating the ArrayAdapter instance having the country list
-        ArrayAdapter aa = new ArrayAdapter(this, R.layout.spinner_item,mDoctorCategory);
-        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //Setting the ArrayAdapter data on the Spinner
-        spin.setAdapter(aa);
-    }
 
-    @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-        Toast.makeText(getApplicationContext(),mDoctorCategory[position] , Toast.LENGTH_LONG).show();
+        mAuth = FirebaseAuth.getInstance();
 
-    }
+        edtdname = findViewById(R.id.etDoctorName);
+        edtdemail = findViewById(R.id.etDoctorEmail);
+        edtdpassword = findViewById(R.id.etDoctorPassword);
+        edtdphone = findViewById(R.id.etDoctorPhone);
+        edtdlocation = findViewById(R.id.etDoctorLocation);
+        edtddesc = findViewById(R.id.etDoctorDescription);
 
-    @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
+        docregister = findViewById(R.id.buttondocregister);
+
+        docregister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String doctorname = edtdname.getText().toString().trim();
+                String doctoremail = edtdemail.getText().toString().trim();
+                String doctorpassword = edtdpassword.getText().toString().trim();
+                String doctorphone = edtdphone.getText().toString().trim();
+                String doctorlocation = edtdlocation.getText().toString().trim();
+                String doctordescription= edtddesc.getText().toString().trim();
+
+                //validate values
+                if (doctorname.isEmpty()) {
+                    edtdname.setError("Full Name is required");
+                    edtdname.requestFocus();
+                    return;
+                }
+                if (doctoremail.isEmpty()) {
+                    edtdemail.setError("Email is required");
+                    edtdemail.requestFocus();
+                    return;
+                }
+                if (!Patterns.EMAIL_ADDRESS.matcher(doctoremail).matches()) {
+                    edtdemail.setError("Please provide a valid email");
+                    edtdemail.requestFocus();
+                    return;
+                }
+                if (doctorpassword.isEmpty()) {
+                    edtdpassword.setError("Password is required");
+                    edtdpassword.requestFocus();
+                    return;
+                }
+
+                if (doctorpassword.length() < 6) {
+                    edtdpassword.setError("The password length must be 6 characters long");
+                    edtdpassword.requestFocus();
+                    return;
+                }
+
+                if (doctorphone.isEmpty()) {
+                    edtdphone.setError("Phone Number is required");
+                    edtdphone.requestFocus();
+                    return;
+                }
+                if (!Patterns.PHONE.matcher(doctorphone).matches()){
+                    edtdphone.setError("Please provide a valid phone number");
+                    edtdphone.requestFocus();
+                }
+                if (doctorlocation.isEmpty()) {
+                    edtdlocation.setError("Location is required");
+                    edtdlocation.requestFocus();
+                    return;
+                }
+                if (doctordescription.isEmpty()) {
+                    edtddesc.setError("Description is required is required");
+                    edtddesc.requestFocus();
+                    return;
+                }
+
+                Doctor doctoruser = new Doctor(doctorname,doctoremail,doctorphone,doctorlocation,doctordescription);
+
+                mAuth.createUserWithEmailAndPassword(doctoremail,doctorpassword)
+                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if(task.isSuccessful()){
+                                    Toast.makeText(DoctorRegister.this, "Register Successfull", Toast.LENGTH_LONG).show();
+//
+                                    FirebaseUtils.registerDoctorUser(doctoruser);
+
+                                } else {
+                                    Toast.makeText(DoctorRegister.this, "Failed to register the user", Toast.LENGTH_LONG).show();
+
+                                }
+                            }
+                        });
+
+            }
+        });
 
     }
 
