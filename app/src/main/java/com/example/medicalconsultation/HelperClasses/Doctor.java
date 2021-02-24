@@ -1,33 +1,37 @@
 package com.example.medicalconsultation.HelperClasses;
 
 public class Doctor {
-    String name;
-    String location;
-    String category;
-    String description;
+    String doctorname;
+    String doctorlocation;
+    String doctoremail;
+    String doctordescription;
+    String doctorphone;
 
     public Doctor() {
     }
 
-    public Doctor(String name, String location, String category, String description) {
-        this.name = name;
-        this.location = location;
-        this.category = category;
-        this.description = description;
+    public Doctor(String doctorname, String doctoremail, String doctorlocation, String doctordescription, String doctorphone) {
+        this.doctorname = doctorname;
+        this.doctoremail = doctoremail;
+        this.doctorlocation = doctorlocation;
+        this.doctordescription = doctordescription;
+        this.doctorphone = doctorphone;
     }
-    public String getName() {
-        return name;
-    }
-
-    public String getLocation() {
-        return location;
+    public String getDoctorname() {
+        return doctorname;
     }
 
-    public String getCategory() {
-        return category;
+    public String getDoctoremail() {
+        return doctoremail;
     }
 
-    public String getDescription() {
-        return description;
+    public String getDoctorlocation() {
+        return doctorlocation;
     }
+
+    public String getDoctordescription() {
+        return doctordescription;
+    }
+
+    public String getDoctorphone(){return doctorphone;}
 }

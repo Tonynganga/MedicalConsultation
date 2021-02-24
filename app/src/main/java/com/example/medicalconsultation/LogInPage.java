@@ -82,16 +82,14 @@ public class LogInPage extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             progressBar.setVisibility(View.GONE);
                             if(task.isSuccessful()){
-
-                                FirebaseUser user = fAuth.getCurrentUser();
                                 if (user.equals(USER_PATIENT)){
                                     Intent intent = new Intent(getApplicationContext(), PatientHomePage.class);
                                     startActivity(intent);
                                 }
+
                                 if (user.equals(USER_DOCTOR)) {
                                     Intent intent = new Intent(getApplicationContext(), DoctorHomePage.class);
                                     startActivity(intent);
-
                                 }
                             }else{
                                 Toast.makeText(getApplicationContext(), "Invalid email or Password",Toast.LENGTH_SHORT).show();
