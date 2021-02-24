@@ -41,8 +41,8 @@ public class LogInPage extends AppCompatActivity {
         String user = myIntent.getStringExtra(APP_USER);
 
 
-        mButtonRegister = (Button)findViewById(R.id.button_register);
-        mButtonLogin = (Button)findViewById(R.id.buttonlogin);
+        mButtonRegister = findViewById(R.id.button_register);
+        mButtonLogin = findViewById(R.id.buttonlogin);
         progressBar = findViewById(R.id.progressBar);
 
 
@@ -82,8 +82,9 @@ public class LogInPage extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             progressBar.setVisibility(View.GONE);
                             if(task.isSuccessful()){
+                                System.out.println(user);
+                                System.out.println(USER_PATIENT);
 
-                                FirebaseUser user = fAuth.getCurrentUser();
                                 if (user.equals(USER_PATIENT)){
                                     Intent intent = new Intent(getApplicationContext(), PatientHomePage.class);
                                     startActivity(intent);
