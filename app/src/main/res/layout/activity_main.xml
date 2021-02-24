@@ -1,52 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
-    tools:context=".MainActivity">
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity"
+        android:paddingBottom="100dp"
+        android:background="@color/background">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:text="@string/heading"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:text="@string/heading"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/picid"
+            android:layout_width="296dp"
+            android:layout_height="296dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/piii"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            tools:ignore="MissingClass" />
 
-    <Button
-        android:id="@+id/buttonpatient"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/buttonbackground"
-        android:text="@string/btnpatient"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:backgroundTint="@color/button_background"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        <Button
+            android:id="@+id/buttonpatient"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="45dp"
+            android:background="@drawable/buttonbackground"
+            android:text="@string/btnpatient"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/button_background"
+            app:layout_constraintStart_toStartOf="@+id/picid"
+            app:layout_constraintTop_toBottomOf="@+id/picid" />
+
+        <Button
+            android:id="@+id/buttondoctor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="45dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/buttonbackground"
+            android:text="@string/btndoctor"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/button_background"
+            app:layout_constraintEnd_toEndOf="@+id/picid"
+            app:layout_constraintTop_toBottomOf="@+id/picid" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
 
 
-    <Button
-        android:id="@+id/buttondoctor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/buttonbackground"
-        android:text="@string/btndoctor"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:backgroundTint="@color/button_background"
-        app:layout_constraintEnd_toEndOf="@+id/buttonpatient"
-        app:layout_constraintStart_toStartOf="@+id/buttonpatient"
-        app:layout_constraintTop_toBottomOf="@+id/buttonpatient" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
