@@ -3,6 +3,7 @@ package com.example.medicalconsultation;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.util.Patterns;
@@ -30,7 +31,7 @@ public class PatientRegister extends AppCompatActivity {
     private EditText edtname, edtemail, edtpassword,edtage, edtlocation;
     private RadioGroup gender;
     private RadioButton selectedRadioButton;
-    private Button edtRegister;
+    private Button edtRegister, loginback;
 
     //variables
     EditText mEtName, mEtAge, mEtLocation, mEtEmail, mEtPassword;
@@ -54,6 +55,10 @@ public class PatientRegister extends AppCompatActivity {
 
         gender = findViewById(R.id.radioGroup);
         edtRegister = findViewById(R.id.buttonRegister);
+        loginback = (Button)findViewById(R.id.buttonloginback);
+
+
+
 
         mAuth = FirebaseAuth.getInstance();
 
