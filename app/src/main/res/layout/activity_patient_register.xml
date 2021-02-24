@@ -5,143 +5,119 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background"
-    tools:context=".PatientRegister">
-
-    <EditText
-        android:id="@+id/etPatientName"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_from_title"
-        android:background="@drawable/input_outline"
-        android:ems="10"
-        android:gravity="center_horizontal"
-        android:hint="@string/patientname"
-        android:importantForAutofill="no"
-        android:inputType="text"
-        android:padding="15dp"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:paddingBottom="150dp"
+        tools:context=".PatientRegister">
 
+        <EditText
+            android:id="@+id/etPatientName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_from_title"
+            android:background="@drawable/input_outline"
+            android:ems="10"
+            android:hint="Enter Name"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:padding="15dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            app:layout_constraintWidth_percent=".8" />
 
-   <EditText
+        <EditText
             android:id="@+id/etPatientEmail"
             android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_btw_textV"
-        android:background="@drawable/input_outline"
-        android:ems="10"
-        android:gravity="center_horizontal"
-        android:hint="@string/patientemail"
-        android:importantForAutofill="no"
-        android:inputType="textEmailAddress"
-        android:padding="15dp"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintHorizontal_bias="0.425"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/etPatientName" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_btw_textV"
+            android:background="@drawable/input_outline"
+            android:ems="10"
+            android:hint="Enter Email"
+            android:importantForAutofill="no"
+            android:inputType="textEmailAddress"
+            android:padding="15dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etPatientName"
+            app:layout_constraintWidth_percent=".8" />
 
-    <EditText
-        android:id="@+id/etPatientPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_btw_textV"
-        android:background="@drawable/input_outline"
-        android:ems="10"
-        android:gravity="center_horizontal"
-        android:hint="@string/patientpassword"
-        android:importantForAutofill="no"
-        android:inputType="textPassword"
-        android:padding="15dp"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintHorizontal_bias="0.34"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/etPatientEmail" />
+        <EditText
+            android:id="@+id/etPatientPassword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_btw_textV"
+            android:background="@drawable/input_outline"
+            android:ems="10"
+            android:hint="Enter Password"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:padding="15dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etPatientEmail"
+            app:layout_constraintWidth_percent=".8" />
 
-    <EditText
-        android:id="@+id/etPatientAge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_btw_textV"
-        android:background="@drawable/input_outline"
-        android:ems="10"
-        android:gravity="center_horizontal"
-        android:hint="@string/patientage"
-        android:importantForAutofill="no"
-        android:inputType="textEmailAddress"
-        android:padding="15dp"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintHorizontal_bias="0.425"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/etPatientPassword" />
+        <EditText
+            android:id="@+id/etPatientAge"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_btw_textV"
+            android:background="@drawable/input_outline"
+            android:ems="10"
+            android:hint="Enter Age"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:padding="15dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etPatientPassword"
+            app:layout_constraintWidth_percent=".8" />
 
-    <EditText
-        android:id="@+id/etPatientLocation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_btw_textV"
-        android:background="@drawable/input_outline"
-        android:ems="10"
-        android:gravity="center_horizontal"
-        android:hint="@string/patientlocation"
-        android:importantForAutofill="no"
-        android:inputType="textPassword"
-        android:padding="15dp"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintHorizontal_bias="0.425"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/etPatientAge" />
-
-
-       
-
-    <RadioGroup
-        android:id="@+id/radioGroupgender"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_btw_textV"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPatientLocation">
-
+        <EditText
+            android:id="@+id/etPatientLocation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_btw_textV"
+            android:background="@drawable/input_outline"
+            android:ems="10"
+            android:hint="Enter Location"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:padding="15dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etPatientAge"
+            app:layout_constraintWidth_percent=".8" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/radio_margin"
-            android:text="@string/select_gender"
-
+            android:layout_marginTop="50dp"
+            android:text="@string/register_patient_title"
             android:textColor="@color/white"
             android:textSize="30sp"
             android:textStyle="bold"
@@ -149,37 +125,59 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <RadioButton
-            android:id="@+id/rbMale"
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/radio_margin"
-            android:checked="true"
-            android:text="@string/gender_male"
-            android:textSize="@dimen/radio_text" />
+            android:layout_marginTop="@dimen/space_btw_textV"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@id/etPatientLocation"
+            app:layout_constraintTop_toBottomOf="@+id/etPatientLocation">
 
-        <RadioButton
-            android:id="@+id/rbfemale"
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/radio_margin"
+                android:text="Select Gender"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold|italic" />
+
+            <RadioButton
+                android:id="@+id/rgBreastMilkBottleFeeding"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/radio_margin"
+                android:checked="true"
+                android:text="male"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/radio_text" />
+
+            <RadioButton
+                android:id="@+id/rgOtherBottleFeeding"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/radio_margin"
+                android:text="Female"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/radio_text" />
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/buttonRegister"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/radio_margin"
-            android:text="@string/gender_female"
-            android:textSize="@dimen/radio_text" />
-           
-        </RadioGroup>     
-
-    <Button
-        android:id="@+id/buttonpatientregister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/buttonbackground"
-        android:text="@string/register_btn"
-        app:backgroundTint="@color/button_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroupgender" />
-
+            android:layout_marginTop="8dp"
+            android:background="@drawable/buttonbackground"
+            android:text="@string/register_btn"
+            app:layout_constraintWidth_percent=".8"
+            app:backgroundTint="@color/button_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
         <ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyle"

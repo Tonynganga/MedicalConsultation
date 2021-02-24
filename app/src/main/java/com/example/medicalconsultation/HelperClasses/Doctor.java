@@ -1,7 +1,10 @@
 package com.example.medicalconsultation.HelperClasses;
 
 public class Doctor {
-    String name, location, category, description, type;
+    String name;
+    String location;
+    String category;
+    String description;
 
     public Doctor() {
     }
@@ -11,6 +14,20 @@ public class Doctor {
         this.location = location;
         this.category = category;
         this.description = description;
-        this.type = "doctor";
+    }
+    public String getName() {
+        return name;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }
