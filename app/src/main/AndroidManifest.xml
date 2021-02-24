@@ -10,7 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MedicalConsultation">
-        <activity android:name=".PatientHomePage"></activity>
+        <activity android:name=".PostComments"></activity>
+        <activity android:name=".CommentSection" />
+        <activity android:name=".PatientProblem" />
+        <activity android:name=".PatientHomePage" />
         <activity android:name=".DoctorHomePage" />
         <activity android:name=".DoctorRegister" />
         <activity android:name=".PatientRegister" />
