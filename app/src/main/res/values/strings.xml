@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">MedicalConsultation</string>
+
+    <string name="button">Button7</string>
+    <string name="name">Name</string>
+    <string name="heading">MEDICAL CONSULTATION APP</string>
+    <string name="btnpatient">PATIENT</string>
+    <string name="btndoctor">DOCTOR</string>
+    <string name="login_text">LogIn</string>
+    <string name="username_login">Username </string>
+    <string name="password_login">Password </string>
+    <string name="login_button">LOGIN</string>
+    <string name="no_account_textview">Dont have an account?</string>
+    <string name="register_btn">REGISTER</string>
+    <string name="register_patient_title">Register Patient</string>
+    <string name="register_doctor_title">Register Doctor</string>
+    <string name="patientname">Enter Name</string>
+    <string name="patientemail">Enter Email</string>
+    <string name="patientpassword">Enter Password</string>
+    <string name="patientage">Enter Age</string>
+    <string name="patientlocation">Enter Location</string>
+    <string name="select_gender">Select Gender</string>
+    <string name="gender_male">male</string>
+    <string name="gender_female">Female</string>
+
+
+
 </resources>
