@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,7 +12,6 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
         android:text="@string/heading"
         android:textColor="@color/white"
         android:textSize="18sp"
@@ -24,28 +24,26 @@
         android:id="@+id/buttonpatient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:background="@drawable/buttonbackground"
+        android:layout_marginTop="@dimen/space_from_title"
+        android:backgroundTint="@color/button_background"
         android:text="@string/btnpatient"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:backgroundTint="@color/button_background"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
-
 
     <Button
         android:id="@+id/buttondoctor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="@dimen/space_btw_textV"
         android:background="@drawable/buttonbackground"
+        android:backgroundTint="@color/button_background"
         android:text="@string/btndoctor"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:backgroundTint="@color/button_background"
-        app:layout_constraintEnd_toEndOf="@+id/buttonpatient"
         app:layout_constraintStart_toStartOf="@+id/buttonpatient"
         app:layout_constraintTop_toBottomOf="@+id/buttonpatient" />
 
