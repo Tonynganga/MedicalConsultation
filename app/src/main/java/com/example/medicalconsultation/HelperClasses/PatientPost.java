@@ -2,16 +2,19 @@ package com.example.medicalconsultation.HelperClasses;
 
 public class PatientPost {
 
-    public String userId;
-    public String id;
-    public String patientProblem;
-    public String category;
-    public PatientPost(){
+    private String userId;
+    private String id;
+    private String patientProblem;
+    private String category;
+    private PatientPost(){
     }
     public PatientPost(String userId, String patientProblem, String category) {
         this.userId = userId;
         this.patientProblem = patientProblem;
         this.category = category;
+    }
+    public String getId() {
+        return id;
     }
     public void setId(String id) {
         this.id = id;
