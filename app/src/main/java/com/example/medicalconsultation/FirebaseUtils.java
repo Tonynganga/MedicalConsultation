@@ -77,10 +77,10 @@ public class FirebaseUtils {
                     }
                 });
     }
-    public static void addComment(Comment comment,String probId){
+    public static void addComment(Comment comment){
         final DocumentReference commentRef;
         commentRef = mFireStore.collection("problems")
-                .document(probId)
+                .document(comment.getProblemId())
                 .collection("comments")
                 .document();
         comment.setId( commentRef.getId());

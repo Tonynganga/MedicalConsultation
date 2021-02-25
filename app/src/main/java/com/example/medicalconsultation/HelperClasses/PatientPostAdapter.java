@@ -31,6 +31,7 @@ import static com.example.medicalconsultation.MainActivity.USER_PATIENT;
 public class PatientPostAdapter extends RecyclerView.Adapter<PatientPostAdapter.PatientsPostViewHolder> {
 
     public static final String PROBLEM_DESCRIPTION = "Problem Description";
+    public static final String PROBLEM_ID = "Problem Id";
     ArrayList<PatientPost> mPatientPosts;
     private final Context mContext;
     private final String mUser;
@@ -146,7 +147,8 @@ public class PatientPostAdapter extends RecyclerView.Adapter<PatientPostAdapter.
 
                 }else {
                     Intent intent = new Intent(mContext.getApplicationContext(), PostComments.class);
-                    intent.putExtra("Problem Description", post.getPatientProblem());
+                    intent.putExtra(PROBLEM_DESCRIPTION, post.getPatientProblem());
+                    intent.putExtra(PROBLEM_ID,post.getId());
                     mContext.startActivity(intent);
                 }
             }
