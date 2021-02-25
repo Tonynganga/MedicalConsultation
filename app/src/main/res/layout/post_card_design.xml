@@ -40,17 +40,23 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <Button
+                android:id="@+id/btView"
                 android:layout_width="80dp"
                 android:layout_height="34dp"
-                android:text="View"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
                 android:background="@color/background"
-                android:textSize="14sp"
+                android:text="View"
                 android:textAllCaps="false"
                 android:textColor="#fff"
-                android:layout_alignParentRight="true"
-                android:layout_margin="10dp"
-                android:layout_marginRight="30dp"/>
+                android:textSize="14sp" />
         </RelativeLayout>
     </LinearLayout>
 

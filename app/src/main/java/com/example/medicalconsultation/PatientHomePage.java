@@ -4,41 +4,37 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.medicalconsultation.HelperClasses.PatientPostAdapter;
-import com.example.medicalconsultation.HelperClasses.PatientPostHelperClass;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.util.ArrayList;
+import static com.example.medicalconsultation.MainActivity.USER_PATIENT;
 
 public class PatientHomePage extends AppCompatActivity {
 
-    RecyclerView recyclerView;
+    RecyclerView mRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_home_page);
-
-        recyclerView = findViewById(R.id.recyclerView);
-
-        patientsPostRecycler();
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PatientHomePage.this,PatientProblem.class);
+                startActivity(intent);
+            }
+        });
+        mRecyclerView = findViewById(R.id.recyclerView);
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        PatientPostAdapter adapter = new PatientPostAdapter(this,USER_PATIENT);
+        mRecyclerView.setAdapter(adapter);
     }
 
-    private void patientsPostRecycler() {
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
-        ArrayList<PatientPostHelperClass> patientPostHelperClasses =new ArrayList<>();
-        patientPostHelperClasses.add(new PatientPostHelperClass("Post One", "This is a sample description one"));
-        patientPostHelperClasses.add(new PatientPostHelperClass("Post Two", "This is a sample description Two"));
-        patientPostHelperClasses.add(new PatientPostHelperClass("Post Three", "This is a sample description Three"));
-        patientPostHelperClasses.add(new PatientPostHelperClass("Post Four", "This is a sample description Four"));
-        patientPostHelperClasses.add(new PatientPostHelperClass("Post Five", "This is a sample description Five"));
-        patientPostHelperClasses.add(new PatientPostHelperClass("Post Six", "This is a sample description Six"));
-        patientPostHelperClasses.add(new PatientPostHelperClass("Post Seven", "This is a sample description Seven"));
-
-        PatientPostAdapter adapter = new PatientPostAdapter(patientPostHelperClasses);
-        recyclerView.setAdapter(adapter);
-    }
 }
