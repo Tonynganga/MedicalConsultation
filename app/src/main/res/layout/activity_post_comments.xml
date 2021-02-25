@@ -35,10 +35,10 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/tvDescForDoc"
         app:layout_constraintWidth_percent=".8" />
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/tvDescForDoc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="TextView"
