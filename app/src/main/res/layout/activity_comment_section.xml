@@ -8,7 +8,7 @@
     tools:context=".CommentSection">
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/tvDescOfProb"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="TextView"
