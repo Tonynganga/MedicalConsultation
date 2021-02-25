@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textColor="@color/white"
-        android:textSize="30sp"
+        android:textSize="20sp"
         android:layout_marginTop="@dimen/space_from_title"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
