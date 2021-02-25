@@ -17,10 +17,20 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Consultation"
-            android:layout_centerInParent="true"
-            android:textSize="30dp"
-            android:textColor="#fff"/>
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:text="Consult a Doctor"
+            android:textColor="#fff"
+            android:textSize="28dp" />
+
+        <Button android:id="@+id/logOutBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:text="Log out"
+            android:textAllCaps="false" />
     </RelativeLayout>
 
     <RelativeLayout

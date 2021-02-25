@@ -85,11 +85,13 @@ public class LogInPage extends AppCompatActivity {
                                 if (user.equals(USER_PATIENT)){
                                     Intent intent = new Intent(getApplicationContext(), PatientHomePage.class);
                                     startActivity(intent);
+                                    finish();
                                 }
 
                                 if (user.equals(USER_DOCTOR)) {
                                     Intent intent = new Intent(getApplicationContext(), DoctorHomePage.class);
                                     startActivity(intent);
+                                    finish();
                                 }
                             }else{
                                 Toast.makeText(getApplicationContext(), "Invalid email or Password",Toast.LENGTH_SHORT).show();
