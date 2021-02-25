@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background"
-        android:paddingBottom="150dp"
+        android:paddingBottom="100dp"
         tools:context=".PatientRegister">
 
         <EditText
@@ -132,12 +132,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_btw_textV"
             android:orientation="horizontal"
+            app:layout_constraintWidth_percent=".9"
+            app:layout_constraintEnd_toEndOf="@+id/etPatientLocation"
             app:layout_constraintStart_toStartOf="@id/etPatientLocation"
             app:layout_constraintTop_toBottomOf="@+id/etPatientLocation">
 
             <TextView
                 android:id="@+id/textView4"
-                android:layout_width="wrap_content"
+                android:layout_width="93dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/radio_margin"
                 android:text="Select Gender"
@@ -170,14 +172,30 @@
             android:id="@+id/buttonRegister"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="32dp"
             android:background="@drawable/buttonbackground"
             android:text="@string/register_btn"
-            app:layout_constraintWidth_percent=".8"
+            app:backgroundTint="@color/button_background"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+            app:layout_constraintWidth_percent=".4" />
+
+        <Button
+            android:id="@+id/buttonloginback"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="28dp"
+            android:layout_marginRight="28dp"
+            android:background="@drawable/buttonbackground"
+            android:text="@string/loginback"
             app:backgroundTint="@color/button_background"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+            app:layout_constraintWidth_percent=".4" />
+
         <ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyle"

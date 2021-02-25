@@ -22,6 +22,7 @@
     <string name="select_gender">Select Gender</string>
     <string name="gender_male">male</string>
     <string name="gender_female">Female</string>
+    <string name="loginback">LOGIN</string>
 
 
 
