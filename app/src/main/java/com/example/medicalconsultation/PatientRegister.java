@@ -25,6 +25,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import static com.example.medicalconsultation.MainActivity.APP_USER;
+import static com.example.medicalconsultation.MainActivity.USER_PATIENT;
+
 
 public class PatientRegister extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -129,6 +132,16 @@ public class PatientRegister extends AppCompatActivity {
 
                                 }
                         }
+                });
+
+                loginback.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), LogInPage.class);
+                        intent.putExtra(APP_USER,USER_PATIENT);
+                        startActivity(intent);
+                        finish();
+                    }
                 });
 
             }
