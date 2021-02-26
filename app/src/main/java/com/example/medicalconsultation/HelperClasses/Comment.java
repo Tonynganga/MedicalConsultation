@@ -4,8 +4,13 @@ public class Comment {
     private String comment;
     private String id;
 
-    public Comment(String comment, String problemId) {
+    private int imgurl;
+
+
+    public Comment(String comment, int imgurl) {
         this.comment = comment;
+
+        this.imgurl = imgurl;
 
     }
 
@@ -17,8 +22,9 @@ public class Comment {
         return comment;
     }
 
-
-
+    public int getImgUrl() {
+        return imgurl;
+    }
 
 
 

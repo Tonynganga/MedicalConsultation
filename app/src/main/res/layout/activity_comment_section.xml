@@ -21,6 +21,20 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintWidth_percent=".8"/>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintTop_toBottomOf="@+id/tvDescOfProb"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/commentRecylerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </ScrollView>
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
