@@ -38,7 +38,7 @@ public class PostComments extends AppCompatActivity {
                 return;
             }
             Comment postComment= new Comment(comment,problemId);
-            FirebaseUtils.addComment(postComment);
+            FirebaseUtils.addComment(postComment,problemId);
             mEtComment.setText("");
         });
     }

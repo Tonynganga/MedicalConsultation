@@ -12,6 +12,7 @@ import com.example.medicalconsultation.HelperClasses.PatientPost;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -22,11 +23,15 @@ import static android.content.ContentValues.TAG;
 public class FirebaseUtils {
     public static final FirebaseFirestore mFireStore = FirebaseFirestore.getInstance();
     public static final FirebaseAuth mFirebaseAuth= FirebaseAuth.getInstance();
+    public static FirebaseAuth.AuthStateListener mAuthStateListener;
+    public static final String PATIENT_USERS = "patientUsers";
+    public static final String DOCTOR_USERS = "doctorUsers";
+    public static String sUserEmail;
 
 
     // Create a new user with a first and last name
     public static void registerPatientUser(Patient user){
-        mFireStore.collection("patientUsers")
+        mFireStore.collection(PATIENT_USERS)
                 .add(user)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
@@ -42,8 +47,22 @@ public class FirebaseUtils {
                 });
 
     }
+    public static void setCurrentUser(){
+      FirebaseUser user =mFirebaseAuth.getCurrentUser();
+      if(user!=null){
+          sUserEmail = user.getEmail();
+      }
+    }
+    public static void attachListener() {
+        mFirebaseAuth.addAuthStateListener(mAuthStateListener);
+    }
+
+    public static void detachListener() {
+        mFirebaseAuth.removeAuthStateListener(mAuthStateListener);
+    }
+
     public static void registerDoctorUser(Doctor user){
-        mFireStore.collection("doctorUsers")
+        mFireStore.collection(DOCTOR_USERS)
                 .add(user)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
@@ -78,10 +97,10 @@ public class FirebaseUtils {
                     }
                 });
     }
-    public static void addComment(Comment comment){
+    public static void addComment(Comment comment,String problemId){
         final DocumentReference commentRef;
         commentRef = mFireStore.collection("problems")
-                .document(comment.getProblemId())
+                .document(problemId)
                 .collection("comments")
                 .document();
         comment.setId( commentRef.getId());
