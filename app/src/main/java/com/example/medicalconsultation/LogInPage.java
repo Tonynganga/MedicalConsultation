@@ -133,7 +133,7 @@ public class LogInPage extends AppCompatActivity {
 
     private void checkUserDoctor() {
         mFireStore.collection(DOCTOR_USERS)
-                .whereEqualTo("email", FirebaseUtils.sUserEmail)
+                .whereEqualTo("doctoremail", FirebaseUtils.sUserEmail)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override

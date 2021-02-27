@@ -103,7 +103,7 @@ public class FirebaseUtils {
                 .document(problemId)
                 .collection("comments")
                 .document();
-        comment.setId( commentRef.getId());
+//        comment.setId( commentRef.getId());
         commentRef.set(comment)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override

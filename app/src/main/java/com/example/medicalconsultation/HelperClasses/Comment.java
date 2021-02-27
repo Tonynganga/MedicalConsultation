@@ -5,12 +5,14 @@ public class Comment {
     private String id;
 
     private int imgurl;
+    public Comment(){
+
+    }
 
 
-    public Comment(String comment, int imgurl) {
+    public Comment(String comment) {
         this.comment = comment;
 
-        this.imgurl = imgurl;
 
     }
 
