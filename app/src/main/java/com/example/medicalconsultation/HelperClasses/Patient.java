@@ -1,11 +1,13 @@
 package com.example.medicalconsultation.HelperClasses;
 
 public class Patient {
-    String name;
-    String email;
-    String location;
-    String gender;
-    int age;
+
+
+    private String name;
+    private String email;
+    private String location;
+    private String gender;
+    private int age;
 
     public Patient() {
     }
@@ -35,5 +37,24 @@ public class Patient {
 
     public int getAge() {
         return age;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 }

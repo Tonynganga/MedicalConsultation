@@ -37,8 +37,8 @@ public class PostComments extends AppCompatActivity {
                 mEtComment.requestFocus();
                 return;
             }
-            Comment postComment= new Comment(comment,problemId);
-            FirebaseUtils.addComment(postComment);
+            Comment postComment= new Comment(comment);
+            FirebaseUtils.addComment(postComment,problemId);
             mEtComment.setText("");
         });
     }

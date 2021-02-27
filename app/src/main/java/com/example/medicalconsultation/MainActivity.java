@@ -31,14 +31,12 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), LogInPage.class);
             intent.putExtra(APP_USER,USER_PATIENT);
             startActivity(intent);
-            finish();
         });
 
         btndoctor.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), LogInPage.class);
             intent.putExtra(APP_USER,USER_DOCTOR);
             startActivity(intent);
-            finish();
         });
     }
 
