@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.AdapterView;
@@ -18,12 +19,18 @@ import com.example.medicalconsultation.HelperClasses.Doctor;
 import com.example.medicalconsultation.HelperClasses.Patient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseException;
+import com.google.firebase.FirebaseNetworkException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 
 
-public class DoctorRegister extends AppCompatActivity  {
-    private EditText edtdname, edtdemail, edtdpassword, edtdphone, edtdlocation, edtddesc;
+ public class DoctorRegister extends AppCompatActivity  {
+     private static final String TAG = "DoctorRegister";
+     private EditText edtdname, edtdemail, edtdpassword, edtdphone, edtdlocation, edtddesc;
     private Button docregister;
     private FirebaseAuth mAuth;
 
@@ -104,7 +111,7 @@ public class DoctorRegister extends AppCompatActivity  {
                     return;
                 }
 
-                Doctor doctoruser = new Doctor(doctorname,doctoremail,doctorphone,doctorlocation,doctordescription);
+                Doctor doctoruser = new Doctor(doctorname,doctoremail,doctorlocation,doctordescription,doctorphone);
 
                 mAuth.createUserWithEmailAndPassword(doctoremail,doctorpassword)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -116,8 +123,7 @@ public class DoctorRegister extends AppCompatActivity  {
                                     FirebaseUtils.registerDoctorUser(doctoruser);
 
                                 } else {
-                                    Toast.makeText(DoctorRegister.this, "Failed to register the user", Toast.LENGTH_LONG).show();
-
+                                    throwRegisterError(task);
                                 }
                             }
                         });
@@ -127,5 +133,24 @@ public class DoctorRegister extends AppCompatActivity  {
 
     }
 
+     private void throwRegisterError(@NonNull Task<AuthResult> task) {
+         try {
+             throw task.getException();
+         } catch(FirebaseAuthWeakPasswordException e) {
+             edtdpassword.setError(getString(R.string.error_weak_password));
+             edtdpassword.requestFocus();
+         } catch(FirebaseAuthInvalidCredentialsException e) {
+             edtdemail.setError(getString(R.string.error_invalid_email));
+             edtdemail.requestFocus();
+         } catch(FirebaseAuthUserCollisionException e) {
+             edtdemail.setError(getString(R.string.error_user_exists));
+             edtdemail.requestFocus();
+         }catch(FirebaseException e){
+             Toast.makeText(getApplicationContext(),R.string.error_no_internet,Toast.LENGTH_LONG).show();
+         } catch(Exception e) {
+             Log.e(TAG, e.getMessage());
+         }
+     }
 
-}
+
+ }

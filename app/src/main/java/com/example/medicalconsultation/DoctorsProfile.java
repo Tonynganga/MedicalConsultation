@@ -14,8 +14,10 @@ import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.medicalconsultation.HelperClasses.Doctor;
 import com.example.medicalconsultation.HelperClasses.Model;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -27,6 +29,8 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+
+import static com.example.medicalconsultation.LogInPage.DOCTOR_DETAILS;
 
 
 public class DoctorsProfile extends AppCompatActivity {
@@ -45,6 +49,9 @@ public class DoctorsProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctors_profile);
+        Intent myIntent = getIntent();
+        Doctor docDetails= (Doctor) myIntent.getSerializableExtra(DOCTOR_DETAILS);
+
 
 
         CircleImageView pic = findViewById(R.id.imageview1);
@@ -52,6 +59,16 @@ public class DoctorsProfile extends AppCompatActivity {
         profileimage = findViewById(R.id.imageview1);
         btnupload = findViewById(R.id.buttonupload);
         progressBar = findViewById(R.id.progressBarupload);
+        TextView tvDocName=findViewById(R.id.textViewDocName);
+        TextView tvDocEmail=findViewById(R.id.textViewDocEmail);
+        TextView tvDocPhoneNo=findViewById(R.id.textViewDocPhoneNo);
+        TextView tvDocDesc=findViewById(R.id.textViewDocDesc);
+        TextView tvDocLoc=findViewById(R.id.textViewDocLocation);
+        tvDocName.setText(docDetails.getDoctorname());
+        tvDocDesc.setText(docDetails.getDoctordescription());
+        tvDocEmail.setText(docDetails.getDoctoremail());
+        tvDocPhoneNo.setText(docDetails.getDoctorphone());
+        tvDocLoc.setText(docDetails.getDoctorlocation());
 
         progressBar.setVisibility(View.INVISIBLE);
 

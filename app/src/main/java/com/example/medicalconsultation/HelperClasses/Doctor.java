@@ -1,11 +1,15 @@
 package com.example.medicalconsultation.HelperClasses;
 
-public class Doctor {
+import java.io.Serializable;
+
+public class Doctor implements Serializable {
     private String doctorname;
     private String doctorlocation;
     private String doctoremail;
     private String doctordescription;
     private String doctorphone;
+
+
     private String imgUrl;
 
     public Doctor() {
@@ -24,6 +28,10 @@ public class Doctor {
 
     public String getDoctoremail() {
         return doctoremail;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
     }
 
     public String getDoctorlocation() {

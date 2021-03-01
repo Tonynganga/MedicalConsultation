@@ -23,7 +23,11 @@
     <string name="gender_male">male</string>
     <string name="gender_female">Female</string>
     <string name="loginback">LOGIN</string>
-
+    <string name="error_weak_password">use a strong password</string>
+    <string name="error_invalid_email">email is invalid</string>
+    <string name="error_user_exists">user already exists</string>
+    <string name="error_no_internet">internet connection not found</string>
+    <string name="error_invalid_email_or_password">invalid email or password</string>
 
 
 </resources>

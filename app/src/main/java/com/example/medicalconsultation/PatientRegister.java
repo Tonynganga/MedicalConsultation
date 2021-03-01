@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.util.Patterns;
 
 import android.view.View;
@@ -22,14 +23,20 @@ import com.example.medicalconsultation.HelperClasses.Patient;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseException;
+import com.google.firebase.FirebaseNetworkException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 
 import static com.example.medicalconsultation.MainActivity.APP_USER;
 import static com.example.medicalconsultation.MainActivity.USER_PATIENT;
 
 
 public class PatientRegister extends AppCompatActivity {
+    private static final String TAG = "PatientRegister";
     private FirebaseAuth mAuth;
     private EditText edtname, edtemail, edtpassword,edtage, edtlocation;
     private RadioGroup gender;
@@ -128,7 +135,7 @@ public class PatientRegister extends AppCompatActivity {
                                     FirebaseUtils.registerPatientUser(patientUser);
 
                                 } else {
-                                    Toast.makeText(PatientRegister.this, "Failed to register the user", Toast.LENGTH_LONG).show();
+                                    throwRegisterError(task);
 
                                 }
                         }
@@ -150,5 +157,23 @@ public class PatientRegister extends AppCompatActivity {
 
 
 
+    }
+    private void throwRegisterError(@NonNull Task<AuthResult> task) {
+        try {
+            throw task.getException();
+        } catch(FirebaseAuthWeakPasswordException e) {
+            edtpassword.setError(getString(R.string.error_weak_password));
+            edtpassword.requestFocus();
+        } catch(FirebaseAuthInvalidCredentialsException e) {
+            edtemail.setError(getString(R.string.error_invalid_email));
+            edtemail.requestFocus();
+        } catch(FirebaseAuthUserCollisionException e) {
+            edtemail.setError(getString(R.string.error_user_exists));
+            edtemail.requestFocus();
+        }catch(FirebaseException e){
+            Toast.makeText(getApplicationContext(),R.string.error_no_internet,Toast.LENGTH_LONG).show();
+        } catch(Exception e) {
+            Log.e(TAG, e.getMessage());
+        }
     }
 }
