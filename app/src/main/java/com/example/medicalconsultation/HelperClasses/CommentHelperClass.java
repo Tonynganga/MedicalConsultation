@@ -1,9 +1,9 @@
 package com.example.medicalconsultation.HelperClasses;
 
-public class PatientPostHelperClass {
+public class CommentHelperClass {
     String title, description;
 
-    public PatientPostHelperClass(String title, String description) {
+    public CommentHelperClass(String title, String description) {
         this.title = title;
         this.description = description;
     }

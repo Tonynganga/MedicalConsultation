@@ -3,11 +3,17 @@ package com.example.medicalconsultation.HelperClasses;
 public class Comment {
     private String comment;
     private String id;
-    private String problemId;
 
-    public Comment(String comment, String problemId) {
+    private int imgurl;
+    public Comment(){
+
+    }
+
+
+    public Comment(String comment) {
         this.comment = comment;
-        this.problemId = problemId;
+
+
     }
 
     public void setId(String id) {
@@ -18,10 +24,8 @@ public class Comment {
         return comment;
     }
 
-
-
-    public String getProblemId() {
-        return problemId;
+    public int getImgUrl() {
+        return imgurl;
     }
 
 

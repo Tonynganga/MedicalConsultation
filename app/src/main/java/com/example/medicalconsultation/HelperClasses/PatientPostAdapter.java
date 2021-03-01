@@ -32,6 +32,7 @@ public class PatientPostAdapter extends RecyclerView.Adapter<PatientPostAdapter.
 
     public static final String PROBLEM_DESCRIPTION = "Problem Description";
     public static final String PROBLEM_ID = "Problem Id";
+    ;
     ArrayList<PatientPost> mPatientPosts;
     private final Context mContext;
     private final String mUser;
@@ -143,6 +144,7 @@ public class PatientPostAdapter extends RecyclerView.Adapter<PatientPostAdapter.
                 if(mUser.equals(USER_PATIENT)){
                     Intent intent = new Intent(mContext.getApplicationContext(), CommentSection.class);
                     intent.putExtra(PROBLEM_DESCRIPTION, post.getPatientProblem());
+                    intent.putExtra(PROBLEM_ID,post.getId());
                     mContext.startActivity(intent);
 
                 }else {
