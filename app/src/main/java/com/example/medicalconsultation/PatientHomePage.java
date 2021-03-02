@@ -43,10 +43,16 @@ public class PatientHomePage extends AppCompatActivity {
 
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+
+
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         PatientPostAdapter adapter = new PatientPostAdapter(this,USER_PATIENT);
         mRecyclerView.setAdapter(adapter);
-
-
     }
 
     @Override
@@ -62,10 +68,7 @@ public class PatientHomePage extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.logout_menu:
                 FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getApplicationContext(), LogInPage.class);
-                intent.putExtra(APP_USER,USER_PATIENT);
-                startActivity(intent);
-                finish();
+                onBackPressed();
             default:
                 return super.onOptionsItemSelected(item);
 

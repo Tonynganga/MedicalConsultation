@@ -176,9 +176,10 @@ public class LogInPage extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                mUserDoctorDetails = document.toObject(Doctor.class);
+                                mUserDoctorDetails = document.toObject(Doctor.class).withId(document.getId());
                             }
                             if(mUserDoctorDetails!=null){
+                                FirebaseUtils.setDoctorUser(mUserDoctorDetails);
                                 Intent intent = new Intent(getApplicationContext(), DoctorHomePage.class);
                                 intent.putExtra(DOCTOR_DETAILS,mUserDoctorDetails);
                                 startActivity(intent);
@@ -189,6 +190,7 @@ public class LogInPage extends AppCompatActivity {
                         }
                     }
                 });
+
     }
 
     private void checkUserPatient() {
@@ -200,7 +202,7 @@ public class LogInPage extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                                 for (QueryDocumentSnapshot document : task.getResult()) {
-                                    mUserPatientDetails = document.toObject(Patient.class);
+                                    mUserPatientDetails = document.toObject(Patient.class).withId(document.getId());
                                 }
                                 if(mUserPatientDetails!=null){
                                     Intent intent = new Intent(getApplicationContext(), PatientHomePage.class);

@@ -24,18 +24,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
         CircleImageView pic = findViewById(R.id.imageview1);
-
-        profile = findViewById(R.id.buttonprofile);
-        profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), DoctorsProfile.class);
-                startActivity(intent);
-            }
-        });
 
         btnpatient = findViewById(R.id.buttonpatient);
         btndoctor = findViewById(R.id.buttondoctor);

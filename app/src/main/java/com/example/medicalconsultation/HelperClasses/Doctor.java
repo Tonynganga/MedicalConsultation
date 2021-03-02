@@ -3,6 +3,9 @@ package com.example.medicalconsultation.HelperClasses;
 import java.io.Serializable;
 
 public class Doctor implements Serializable {
+
+
+    private String id;
     private String doctorname;
     private String doctorlocation;
     private String doctoremail;
@@ -10,7 +13,7 @@ public class Doctor implements Serializable {
     private String doctorphone;
 
 
-    private String imgUrl;
+    private String imgUri;
 
     public Doctor() {
     }
@@ -22,6 +25,20 @@ public class Doctor implements Serializable {
         this.doctordescription = doctordescription;
         this.doctorphone = doctorphone;
     }
+
+    public Doctor withId(String id){
+        this.id=id;
+        return this;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getDoctorname() {
         return doctorname;
     }
@@ -30,8 +47,8 @@ public class Doctor implements Serializable {
         return doctoremail;
     }
 
-    public String getImgUrl() {
-        return imgUrl;
+    public String getImgUri() {
+        return imgUri;
     }
 
     public String getDoctorlocation() {
@@ -64,7 +81,7 @@ public class Doctor implements Serializable {
         this.doctorphone = doctorphone;
     }
 
-    public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
+    public void setImgUri(String imgUri) {
+        this.imgUri = imgUri;
     }
 }

@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.medicalconsultation.HelperClasses.Comment;
+import com.example.medicalconsultation.HelperClasses.Doctor;
 import com.example.medicalconsultation.HelperClasses.PatientPost;
 
 import static com.example.medicalconsultation.FirebaseUtils.mFirebaseAuth;
@@ -37,9 +38,14 @@ public class PostComments extends AppCompatActivity {
                 mEtComment.requestFocus();
                 return;
             }
-//            Comment postComment= new Comment(comment);
-//            FirebaseUtils.addComment(postComment,problemId);
+            Comment postComment= new Comment(comment,FirebaseUtils.sUserDoctorDetails.getId());
+            if(FirebaseUtils.sUserDoctorDetails.getImgUri()!=null){
+                postComment.setImgUri(FirebaseUtils.sUserDoctorDetails.getImgUri());
+            }
+
+            FirebaseUtils.addComment(this,postComment,problemId);
             mEtComment.setText("");
         });
     }
+
 }
