@@ -7,20 +7,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.medicalconsultation.HelperClasses.Doctor;
-import com.example.medicalconsultation.HelperClasses.Patient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
-import com.google.firebase.FirebaseNetworkException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
@@ -120,7 +114,7 @@ import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
                                 if(task.isSuccessful()){
                                     Toast.makeText(DoctorRegister.this, "Register Successfull", Toast.LENGTH_LONG).show();
 //
-                                    FirebaseUtils.registerDoctorUser(doctoruser);
+                                    FirebaseUtils.saveDoctorUser(doctoruser);
 
                                 } else {
                                     throwRegisterError(task);
@@ -130,6 +124,9 @@ import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 
             }
         });
+
+    }
+    private void getDoctor(){
 
     }
 

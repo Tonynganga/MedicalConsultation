@@ -87,7 +87,6 @@ public class PatientPostAdapter extends RecyclerView.Adapter<PatientPostAdapter.
         Button btn;
         public PatientsPostViewHolder(@NonNull View itemView) {
             super(itemView);
-
             //Hooks
             title = itemView.findViewById(R.id.postTitle);
             desc = itemView.findViewById(R.id.postDescription);
@@ -138,6 +137,10 @@ public class PatientPostAdapter extends RecyclerView.Adapter<PatientPostAdapter.
         PatientPost post = mPatientPosts.get(position);
         holder.title.setText(post.getCategory());
         holder.desc.setText(post.getPatientProblem());
+        if(!mUser.equals(USER_PATIENT)){
+            holder.btn.setText("comment");
+        }
+
         holder.btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -151,6 +154,7 @@ public class PatientPostAdapter extends RecyclerView.Adapter<PatientPostAdapter.
                     Intent intent = new Intent(mContext.getApplicationContext(), PostComments.class);
                     intent.putExtra(PROBLEM_DESCRIPTION, post.getPatientProblem());
                     intent.putExtra(PROBLEM_ID,post.getId());
+
                     mContext.startActivity(intent);
                 }
             }

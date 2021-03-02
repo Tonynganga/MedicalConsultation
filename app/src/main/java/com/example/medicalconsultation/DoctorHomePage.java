@@ -41,11 +41,6 @@ public class DoctorHomePage extends AppCompatActivity {
         mRecyclerView.setAdapter(adapter);
         mDocDetails = (Doctor) myIntent.getSerializableExtra(DOCTOR_DETAILS);
 
-
-
-
-
-
     }
 
     @Override
@@ -61,6 +56,8 @@ public class DoctorHomePage extends AppCompatActivity {
         return true;
     }
 
+
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
@@ -71,10 +68,7 @@ public class DoctorHomePage extends AppCompatActivity {
                 return true;
             case R.id.logout_menu:
                 FirebaseAuth.getInstance().signOut();
-                Intent logIntent = new Intent(getApplicationContext(), LogInPage.class);
-                logIntent.putExtra(APP_USER,USER_DOCTOR);
-                startActivity(logIntent);
-                finish();
+                onBackPressed();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

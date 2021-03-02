@@ -17,7 +17,7 @@ import com.example.medicalconsultation.HelperClasses.PatientPost;
 import static com.example.medicalconsultation.FirebaseUtils.mFirebaseAuth;
 
 public class PatientProblem extends AppCompatActivity implements  AdapterView.OnItemSelectedListener {
-    private final String[] mDoctorCategory={"Dentistry","Optical","Skin Problems","Pediatrics","Gastrologist"};
+    private final String[] mDoctorCategory={"Dentistry","Optical","Skin Problems","Pediatrics","Gastrointestinal"};
     private String mCategoryVal;
     private EditText mEtDesc;
     private Button mBtPostProb;
@@ -43,7 +43,7 @@ public class PatientProblem extends AppCompatActivity implements  AdapterView.On
                 return;
             }
             PatientPost post= new PatientPost(mFirebaseAuth.getUid(),description,mCategoryVal);
-            FirebaseUtils.addPost(post);
+            FirebaseUtils.addPost(this,post);
             mEtDesc.setText("");
 
 

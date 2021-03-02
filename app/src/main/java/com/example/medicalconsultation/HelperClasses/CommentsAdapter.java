@@ -1,6 +1,8 @@
 package com.example.medicalconsultation.HelperClasses;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.res.Resources;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.example.medicalconsultation.DoctorsProfile;
 import com.example.medicalconsultation.R;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentChange;
@@ -22,12 +26,15 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 
 import static com.example.medicalconsultation.FirebaseUtils.mFireStore;
+import static com.example.medicalconsultation.LogInPage.DOCTOR_DETAILS;
 
 public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.CommentsViewHolder> {
+    public static final String SEND_DOCTOR_ID = "Doctor Id";
     public ArrayList<Comment> mCommentsPosted;
-
+    public Context mContext;
 
     public CommentsAdapter(Context context, String problemId) {
+        mContext=context;
         populateComments(problemId);
 
     }
@@ -60,8 +67,28 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.Commen
     public void onBindViewHolder(@NonNull CommentsViewHolder holder, int position) {
         Comment comments = mCommentsPosted.get(position);
         holder.title.setText(comments.getComment());
+        holder.image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(comments.getDocId()!=null)
+                {
+                    Intent intent = new Intent(mContext, DoctorsProfile.class);
+                    intent.putExtra(SEND_DOCTOR_ID,comments.getDocId());
+                    mContext.startActivity(intent);
+                }
+
+            }
+        });
+        showImage(comments.getImgUri(),holder.image);
 //        holder.image.setImageResource(comments.getImgUrl());
 
+    }
+    public void showImage(String url,ImageView profileimage){
+        if(url!=null&&url.isEmpty()==false){
+            int width = Resources.getSystem().getDisplayMetrics().widthPixels;
+            Glide.with(mContext).load(url).override(width*1/2, width*2/3).
+                    centerCrop().into(profileimage);
+        }
     }
     private void populateComments(String problemId) {
         CollectionReference commentRef = mFireStore.collection("problems").document(problemId).collection("comments");

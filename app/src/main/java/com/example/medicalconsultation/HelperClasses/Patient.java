@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Patient implements Serializable {
 
-
+    private String id;
     private String name;
     private String email;
     private String location;
@@ -21,6 +21,12 @@ public class Patient implements Serializable {
         this.gender = gender;
         this.age = age;
     }
+
+    public Patient withId(String id){
+        this.id=id;
+        return this;
+    }
+
     public String getName() {
         return name;
     }
