@@ -128,9 +128,11 @@ public class LogInPage extends AppCompatActivity {
             if(mUser.equals(USER_PATIENT)){
                 Intent intent = new Intent(getApplicationContext(), PatientRegister.class);
                 startActivity(intent);
+                finish();
             }else{
                 Intent intent = new Intent(getApplicationContext(), DoctorRegister.class);
                 startActivity(intent);
+
             }
 
 
