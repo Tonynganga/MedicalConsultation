@@ -70,13 +70,11 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.Commen
         holder.image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(comments.getDocId()!=null)
-                {
+                if(comments.getDocId()!=null){
                     Intent intent = new Intent(mContext, DoctorsProfile.class);
                     intent.putExtra(SEND_DOCTOR_ID,comments.getDocId());
                     mContext.startActivity(intent);
                 }
-
             }
         });
         showImage(comments.getImgUri(),holder.image);

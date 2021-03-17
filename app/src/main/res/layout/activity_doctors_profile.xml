@@ -148,12 +148,12 @@
 
         <TextView
             android:id="@+id/textViewDocDesc"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
-            app:layout_constraintEnd_toEndOf="@+id/textViewDocLocation"
+            android:scrollHorizontally="false"
+            android:textSize="18sp"
             app:layout_constraintStart_toEndOf="@+id/textView10"
             app:layout_constraintTop_toTopOf="@+id/textView10" />
 
