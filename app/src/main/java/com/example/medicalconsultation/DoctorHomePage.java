@@ -17,6 +17,9 @@ import com.example.medicalconsultation.HelperClasses.Doctor;
 import com.example.medicalconsultation.HelperClasses.PatientPostAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static com.example.medicalconsultation.LogInPage.DOCTOR_DETAILS;
 import static com.example.medicalconsultation.MainActivity.APP_USER;
 import static com.example.medicalconsultation.MainActivity.USER_DOCTOR;
